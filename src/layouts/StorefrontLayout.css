@@ -1,0 +1,175 @@
+.layout-storefront {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f7fb;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.storefront-header {
+  height: 82px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.storefront-logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #0f172a;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.storefront-search {
+  width: 260px;
+  position: relative;
+}
+
+.storefront-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.storefront-search-input {
+  width: 100%;
+  height: 38px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+
+  padding: 0 14px 0 34px;
+
+  font-size: 13px;
+
+  background: #f8fafc;
+
+  transition: 0.2s;
+}
+
+.storefront-search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: white;
+}
+
+/* =========================
+   NAV
+========================= */
+
+.storefront-nav {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
+.storefront-nav a {
+  text-decoration: none;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+
+  padding-bottom: 10px;
+  border-bottom: 2px solid transparent;
+
+  transition: 0.2s;
+}
+
+.storefront-nav a:hover {
+  color: #2563eb;
+}
+
+.storefront-nav .nav-active {
+  color: #2563eb;
+  border-bottom: 2px solid #2563eb;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.storefront-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.storefront-action-button {
+  border: none;
+  background: transparent;
+
+  color: #334155;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  transition: 0.2s;
+}
+
+.storefront-action-button:hover {
+  color: #2563eb;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.storefront-main {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .storefront-header {
+    padding: 0 20px;
+  }
+
+  .storefront-nav {
+    gap: 20px;
+  }
+
+}
+
+@media (max-width: 680px) {
+
+  .storefront-header {
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    height: auto;
+    padding: 20px;
+  }
+
+}

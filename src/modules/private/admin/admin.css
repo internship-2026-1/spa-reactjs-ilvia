@@ -1,0 +1,346 @@
+.admin-page {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+/* HEADER */
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+}
+
+.admin-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.admin-header span {
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* STATS */
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.admin-card {
+  background: white;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 10px;
+
+  padding: 1rem;
+
+  min-height: 120px;
+}
+
+.admin-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 0.8rem;
+}
+
+.admin-card-top svg {
+  color: #2563eb;
+  font-size: 1rem;
+}
+
+.admin-card small {
+  display: block;
+
+  color: #64748b;
+
+  font-size: 0.75rem;
+
+  margin-bottom: 0.4rem;
+}
+
+.admin-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.positive {
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.negative {
+  color: #ef4444;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* SECTION */
+
+.admin-section {
+  margin-bottom: 1.5rem;
+}
+
+.admin-section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 0.8rem;
+}
+
+.admin-section h3 {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.04rem;
+}
+
+.admin-section-top button {
+  border: none;
+  background: transparent;
+
+  color: #2563eb;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* INVENTORY */
+
+.inventory-wrapper {
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.inventory-item {
+  background: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.8rem;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.inventory-item:last-child {
+  border-bottom: none;
+}
+
+.inventory-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.inventory-left img {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 6px;
+
+  object-fit: cover;
+}
+
+.inventory-left h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0f172a;
+
+  margin-bottom: 0.2rem;
+}
+
+.inventory-left p {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.danger {
+  color: #ef4444;
+}
+
+.inventory-btn {
+  width: 70px;
+  height: 34px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* ACTIONS */
+
+.admin-actions {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 0.7rem;
+}
+
+.action-card {
+  background: white;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 10px;
+
+  padding: 1rem 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.action-card:hover {
+  border-color: #2563eb;
+}
+
+.action-card svg {
+  color: #2563eb;
+  font-size: 1rem;
+}
+
+.action-card span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* FOOTER */
+
+.admin-footer {
+  margin-top: 3rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1rem;
+
+  padding-top: 2rem;
+
+  border-top: 1px solid #e2e8f0;
+}
+
+.admin-footer h4,
+.admin-footer h5 {
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.admin-footer p,
+.admin-footer a {
+  display: block;
+
+  font-size: 0.72rem;
+
+  color: #94a3b8;
+
+  margin-bottom: 0.4rem;
+}
+
+/* MOBILE */
+
+@media (max-width: 540px) {
+
+  .admin-page {
+    padding: 0.8rem;
+  }
+
+  .admin-header h1 {
+    font-size: 1.7rem;
+  }
+
+}
+
+/* NAVBAR */
+
+.admin-navbar {
+  height: 70px;
+
+  background: white;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 1rem;
+
+  margin: -1rem -1rem 1.5rem;
+}
+
+.admin-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-logo h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.admin-logo span {
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 0.6rem;
+  font-weight: 700;
+
+  padding: 0.15rem 0.4rem;
+
+  border-radius: 4px;
+}
+
+.admin-navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-navbar-icons svg {
+  font-size: 1rem;
+  color: #334155;
+  cursor: pointer;
+}

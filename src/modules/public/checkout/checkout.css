@@ -1,0 +1,327 @@
+.checkout-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* STEPS */
+
+.checkout-steps {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.step span {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #dbe2ea;
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step.active {
+  color: #2563eb;
+}
+
+.step.active span {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
+
+.line {
+  width: 40px;
+  height: 1px;
+  background: #dbe2ea;
+}
+
+/* LAYOUT */
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* CARD */
+
+.checkout-card {
+  background: white;
+  border: 1px solid #dbe2ea;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.checkout-card h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #0f172a;
+}
+
+/* FORM */
+
+.checkout-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.checkout-form-grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.form-group input {
+  height: 46px;
+  border: 1px solid #dbe2ea;
+  border-radius: 8px;
+  padding: 0 1rem;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+}
+
+/* SHIPPING */
+
+.shipping-title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.shipping-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.shipping-box {
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  padding: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.shipping-box.active {
+  border: 2px solid #2563eb;
+}
+
+.shipping-left {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.shipping-left h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.shipping-left p {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.shipping-box span {
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ACTIONS */
+
+.checkout-actions {
+  margin-top: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: #475569;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  cursor: pointer;
+}
+
+.continue-btn {
+  width: 220px;
+  height: 48px;
+}
+
+/* SUMMARY */
+
+.checkout-summary {
+  background: white;
+  border: 1px solid #dbe2ea;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.checkout-summary h2 {
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+
+/* PRODUCT */
+
+.summary-product {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.summary-product img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.summary-product h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.summary-product p {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.summary-product span {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.summary-divider {
+  border-top: 1px solid #e2e8f0;
+  margin: 1.5rem 0;
+}
+
+/* TOTALS */
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.summary-total {
+  margin-top: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-total h1 {
+  color: #2563eb;
+  font-size: 2rem;
+}
+
+/* COUPON */
+
+.coupon-box {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.coupon-box input {
+  flex: 1;
+  height: 42px;
+  border: 1px solid #dbe2ea;
+  border-radius: 8px;
+  padding: 0 1rem;
+}
+
+/* SECURITY */
+
+.checkout-security {
+  margin-top: 1.5rem;
+
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+/* FOOTER */
+
+.checkout-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+
+  border-top: 1px solid #dbe2ea;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.checkout-footer h4,
+.checkout-footer h5 {
+  margin-bottom: 0.8rem;
+}
+
+.checkout-footer p,
+.checkout-footer a {
+  display: block;
+  color: #64748b;
+  font-size: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.socials {
+  display: flex;
+  gap: 0.7rem;
+}

@@ -1,0 +1,419 @@
+/* --- CONTENEDOR GENERAL --- */
+.product-detail-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  font-family: 'Inter', sans-serif;
+  color: #0f172a;
+  background-color: #ffffff;
+}
+
+/* --- ENCABEZADO SUPERIOR --- */
+.diseno-custom-header {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.diseno-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.diseno-header-logo strong {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.diseno-header-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.diseno-header-nav a {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 24px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.diseno-header-nav a:hover {
+  color: #0f172a;
+}
+
+.diseno-header-nav a.diseno-active {
+  color: #2563eb;
+  font-weight: 600;
+  border-bottom: 2px solid #2563eb;
+}
+
+.diseno-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.diseno-header-btn {
+  background: none;
+  border: none;
+  color: #475569;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.diseno-header-btn:hover {
+  color: #2563eb;
+}
+
+/* --- ESTRUCTURA HERO (DETALLE PRODUCTO) --- */
+.pd-hero-section {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  align-items: start;
+}
+
+/* Galería izquierda */
+.pd-gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pd-main-box {
+  width: 100%;
+  height: 440px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.pd-main-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.pd-thumbs-box {
+  display: flex;
+  gap: 12px;
+}
+
+.pd-thumb-btn {
+  width: 90px;
+  height: 75px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  transition: border-color 0.2s;
+}
+
+.pd-thumb-btn.active, .pd-thumb-btn:hover {
+  border-color: #2563eb;
+}
+
+.pd-thumb-btn img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Info derecha */
+.pd-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pd-series-tag {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.pd-main-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.15;
+  margin: 0 0 12px 0;
+}
+
+.pd-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #f59e0b;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.pd-reviews-count {
+  color: #64748b;
+  font-size: 13px;
+  margin-left: 4px;
+}
+
+.pd-main-desc {
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+/* Píldoras de especificaciones en el Hero */
+.pd-pills-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.pd-spec-pill {
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+/* Caja de Transacción (Precio + Botones) */
+.pd-transaction-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  background: #ffffff;
+}
+
+.pd-price-label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.pd-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.pd-price-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.pd-shipping-info {
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.pd-btn-cart {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  transition: background 0.2s;
+}
+
+.pd-btn-cart:hover {
+  background: #1d4ed8;
+}
+
+.pd-btn-config {
+  width: 100%;
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #d1d5db;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pd-btn-config:hover {
+  background: #f8fafc;
+}
+
+/* --- SECCIÓN ESPECIFICACIONES TÉCNICAS INFERIOR --- */
+.pd-specs-section-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 24px 0;
+}
+
+.pd-specs-columns-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.pd-column-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pd-clean-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 13px;
+}
+
+.pd-clean-label {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.pd-clean-val {
+  color: #0f172a;
+  font-weight: 600;
+  max-width: 65%;
+  text-align: right;
+}
+
+/* --- SECCIÓN DESTACADOS COMPLEMENTARIOS --- */
+.pd-bottom-showcase {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 24px;
+}
+
+.pd-banner-thermal {
+  background: #0f172a;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  height: 420px;
+}
+
+.pd-banner-thermal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.30;
+}
+
+.pd-banner-content{
+  position:absolute;
+  left:32px;
+  bottom:28px;
+  z-index:5;
+  max-width:420px;
+}
+
+.pd-banner-content h4 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  color:#ffffff;
+}
+
+.pd-banner-content p {
+  font-size: 13px;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.pd-grid-side-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pd-card-gray {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 24px;
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pd-card-gray h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pd-card-gray p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .pd-hero-section, .pd-specs-columns-grid, .pd-bottom-showcase {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .pd-banner-thermal {
+    height: 220px;
+  }
+}
