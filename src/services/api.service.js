@@ -1,175 +1,261 @@
-import { env } from '../config/env';
-import sessionStorageService from './sessionStorage.service';
+import { API_BASE_URL } from "../config";
 
 class ApiService {
-  static instance = null;
+
+  static instance;
 
   static getInstance() {
+
     if (!ApiService.instance) {
       ApiService.instance = new ApiService();
     }
+
     return ApiService.instance;
+
   }
 
-  constructor() {
-    this.baseURL = (env.API_BASE_URL || '').replace(/\/+$/, '');
-    this.timeout = Number(env.API_TIMEOUT) || 10000;
-  }
+  // =========================
+  // HEADERS GENERALES
+  // =========================
 
-  buildKey(key) {
-    return key.startsWith('/') ? key.slice(1) : key;
-  }
+  getDefaultHeaders() {
 
-  buildUrl(endpoint, query) {
-    const value = endpoint || '';
-    const isAbsolute = /^(https?:)?\/\//i.test(value);
-    const url = isAbsolute
-      ? value
-      : `${this.baseURL}/${this.buildKey(value)}`.replace(/\/+$/, '');
+    const token =
+      sessionStorage.getItem("jwt");
 
-    if (!query || typeof query !== 'object') {
-      return url;
-    }
+    return {
 
-    const queryString = Object.entries(query)
-      .flatMap(([key, value]) => {
-        if (value === null || value === undefined) {
-          return [];
-        }
+      "Content-Type":
+        "application/json",
 
-        if (Array.isArray(value)) {
-          return value.map((item) => `${encodeURIComponent(key)}=${encodeURIComponent(String(item))}`);
-        }
+      "x-api-key":
+        import.meta.env.VITE_API_KEY ?? "",
 
-        return `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`;
-      })
-      .join('&');
+      "x-origin":
+        import.meta.env.VITE_APP_ORIGIN
+        ?? window.location.origin,
 
-    return queryString ? `${url}?${queryString}` : url;
-  }
+      ...(token
+        ? {
+            Authorization:
+              `Bearer ${token}`,
+          }
+        : {}),
 
-  getAuthHeaders() {
-    const headers = {};
-
-    if (env.API_KEY) {
-      headers['x-api-key'] = env.API_KEY;
-    }
-
-    if (env.ORIGIN) {
-      headers.Origin = env.ORIGIN;
-    }
-
-    try {
-      const token = sessionStorageService.get('token');
-      if (token) {
-        headers.Authorization = `Bearer ${token}`;
-      }
-    } catch (error) {
-      // No romper la aplicación si la lectura de sesión falla.
-    }
-
-    return headers;
-  }
-
-  async parseResponse(response) {
-    const result = {
-      ok: response.ok,
-      status: response.status,
-      data: null,
-      error: null,
     };
 
-    try {
-      const text = await response.text();
-      if (!text) {
-        return result;
-      }
+  }
 
-      try {
-        result.data = JSON.parse(text);
-      } catch {
-        result.data = text;
-      }
+  // =========================
+  // CONSTRUIR URL
+  // =========================
 
-      if (!response.ok && !result.error) {
-        result.error = typeof result.data === 'string' ? result.data : response.statusText || 'Request failed';
-      }
-    } catch (error) {
-      result.error = String(error);
+  buildUrl(endpoint) {
+
+    // SI YA ES URL COMPLETA
+    if (/^https?:\/\//.test(endpoint)) {
+      return endpoint;
     }
 
-    return result;
+    const baseUrl =
+      API_BASE_URL?.replace(/\/$/, "")
+      ?? "";
+
+    const path =
+      endpoint.startsWith("/")
+        ? endpoint
+        : `/${endpoint}`;
+
+    return `${baseUrl}${path}`;
+
   }
 
-  async request(method, endpoint, { body, headers = {}, query, signal, ...options } = {}) {
-    const url = this.buildUrl(endpoint, query);
-    const defaultHeaders = this.getAuthHeaders();
-    const requestHeaders = { ...defaultHeaders, ...headers };
+  // =========================
+  // GET
+  // =========================
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), this.timeout);
+async get(endpoint, options = {}) {
 
-    if (signal) {
-      signal.addEventListener('abort', () => controller.abort(), { once: true });
+  const headers = {
+
+    ...this.getDefaultHeaders(),
+
+    ...(options.headers ?? {}),
+
+  };
+
+  console.log(
+    "GET HEADERS:",
+    headers
+  );
+
+  const response = await fetch(
+
+    this.buildUrl(endpoint),
+
+    {
+
+      method: "GET",
+
+      headers,
+
     }
 
-    const config = {
-      method,
-      headers: requestHeaders,
-      signal: controller.signal,
-      ...options,
-    };
+  );
 
-    if (body !== undefined && body !== null && method !== 'GET') {
-      config.headers = {
-        'Content-Type': 'application/json',
-        ...config.headers,
-      };
-      config.body = JSON.stringify(body);
-    }
+  const data =
+    await response.json();
 
-    try {
-      const response = await fetch(url, config);
-      const result = await this.parseResponse(response);
+  console.log(
+    "GET RESPONSE:",
+    data
+  );
 
-      if (!response.ok && !result.error) {
-        result.error = response.statusText || 'Request failed';
-      }
+  if (!response.ok) {
 
-      return result;
-    } catch (error) {
-      return {
-        ok: false,
-        status: 0,
-        data: null,
-        error: error.name === 'AbortError' ? 'Request timeout' : String(error),
-      };
-    } finally {
-      clearTimeout(timeoutId);
-    }
+    throw new Error(
+      JSON.stringify(data)
+    );
+
   }
 
-  get(endpoint, config = {}) {
-    return this.request('GET', endpoint, config);
-  }
+  return data;
 
-  post(endpoint, config = {}) {
-    return this.request('POST', endpoint, config);
-  }
-
-  put(endpoint, config = {}) {
-    return this.request('PUT', endpoint, config);
-  }
-
-  patch(endpoint, config = {}) {
-    return this.request('PATCH', endpoint, config);
-  }
-
-  delete(endpoint, config = {}) {
-    return this.request('DELETE', endpoint, config);
-  }
 }
 
-const apiService = ApiService.getInstance();
-export { ApiService, apiService };
-export default apiService;
+  // =========================
+  // POST
+  // =========================
+
+  async post(endpoint, body, options = {}) {
+
+    console.log(
+      "BODY:",
+      body
+    );
+
+    console.log(
+      "HEADERS:",
+      this.getDefaultHeaders()
+    );
+
+    const response = await fetch(
+      this.buildUrl(endpoint),
+      {
+        method: "POST",
+
+        headers: {
+          ...this.getDefaultHeaders(),
+          ...(options.headers ?? {}),
+        },
+
+        body: JSON.stringify(body),
+
+        ...options,
+      }
+    );
+
+    const data =
+      await response.text();
+
+    console.log(
+      "BACKEND:",
+      data
+    );
+
+    if (!response.ok) {
+
+      throw new Error(data);
+
+    }
+
+    return JSON.parse(data);
+
+  }
+
+  // =========================
+  // PUT
+  // =========================
+
+  async put(endpoint, body, options = {}) {
+
+    const response = await fetch(
+      this.buildUrl(endpoint),
+      {
+        method: "PUT",
+
+        headers: {
+          ...this.getDefaultHeaders(),
+          ...(options.headers ?? {}),
+        },
+
+        body: JSON.stringify(body),
+
+        ...options,
+      }
+    );
+
+    const data =
+      await response.json();
+
+    console.log(
+      "PUT RESPONSE:",
+      data
+    );
+
+    if (!response.ok) {
+
+      throw new Error(
+        JSON.stringify(data)
+      );
+
+    }
+
+    return data;
+
+  }
+
+  // =========================
+  // DELETE
+  // =========================
+
+  async delete(endpoint, options = {}) {
+
+    const response = await fetch(
+      this.buildUrl(endpoint),
+      {
+        method: "DELETE",
+
+        headers: {
+          ...this.getDefaultHeaders(),
+          ...(options.headers ?? {}),
+        },
+
+        ...options,
+      }
+    );
+
+    const data =
+      await response.json();
+
+    console.log(
+      "DELETE RESPONSE:",
+      data
+    );
+
+    if (!response.ok) {
+
+      throw new Error(
+        JSON.stringify(data)
+      );
+
+    }
+
+    return data;
+
+  }
+
+}
+
+export const apiService =
+  ApiService.getInstance();

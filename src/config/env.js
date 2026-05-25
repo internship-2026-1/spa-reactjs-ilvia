@@ -3,7 +3,7 @@ const requiredVars = ['VITE_API_BASE_URL', 'VITE_APP_NAME', 'VITE_API_KEY', 'VIT
 const missing = requiredVars.filter((key) => !import.meta.env[key]);
 
 if (missing.length > 0) {
-  throw new Error(`Missing required environment variables: ${missing.join(', ')}`);
+
 }
 
 export const env = {

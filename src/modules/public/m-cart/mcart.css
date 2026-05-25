@@ -1,0 +1,271 @@
+.mcart-page{
+  width:100%;
+  min-height:100vh;
+  background:#f4f7fb;
+  padding:30px 0 60px;
+}
+
+.mcart-container{
+  width:95%;
+  max-width:1200px;
+  margin:auto;
+}
+
+.mcart-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:24px;
+}
+
+.mcart-title h1{
+  font-size:22px;
+  font-weight:700;
+  color:#0f172a;
+}
+
+.mcart-card{
+  background:#fff;
+  border:1px solid #d9e0ea;
+  border-radius:10px;
+  padding:18px;
+  margin-bottom:16px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.mcart-product-left{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+
+.mcart-product-left img{
+  width:90px;
+  height:70px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.mcart-product-left h3{
+  font-size:17px;
+  font-weight:700;
+  margin-bottom:6px;
+  color:#111827;
+}
+
+.mcart-product-left p{
+  font-size:14px;
+  color:#6b7280;
+  margin-bottom:12px;
+}
+
+.mcart-product-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:18px;
+}
+
+.mcart-trash{
+  color:#6b7280;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.mcart-price{
+  color:#2563eb;
+  font-size:22px;
+  font-weight:700;
+}
+
+.mcart-qty .sumador-container{
+  height:30px !important;
+  border:1px solid #d7dce3 !important;
+  border-radius:4px !important;
+  overflow:hidden;
+}
+
+.mcart-qty button{
+  width:28px !important;
+  background:#ffffff !important;
+  color:#6b7280 !important;
+  border:none !important;
+  font-size:14px !important;
+}
+
+.mcart-qty span,
+.mcart-qty input{
+  color:#374151 !important;
+  font-weight:600 !important;
+  font-size:14px !important;
+  background:#ffffff !important;
+}
+
+.mcart-summary{
+  margin-top:24px;
+  background:#fff;
+  border:1px solid #d9e0ea;
+  border-radius:10px;
+  padding:26px;
+}
+
+.mcart-summary h2{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:28px;
+  color:#111827;
+}
+
+.mcart-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+  font-size:15px;
+  color:#374151;
+}
+
+.mcart-summary hr{
+  border:none;
+  border-top:1px solid #d9e0ea;
+  margin:24px 0;
+}
+
+.mcart-total{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:28px;
+}
+
+.mcart-total span{
+  font-size:18px;
+  font-weight:700;
+  color:#111827;
+}
+
+.mcart-total h1{
+  font-size:42px;
+  color:#2563eb;
+  font-weight:700;
+}
+
+.mcart-coupon{
+  display:flex;
+  gap:12px;
+  margin-bottom:24px;
+}
+
+.mcart-coupon input{
+  flex:1;
+}
+
+.mcart-apply-btn{
+  min-width:110px;
+  height:48px;
+  border-radius:8px !important;
+}
+
+.mcart-checkout-btn{
+  width:100%;
+  height:52px;
+  border-radius:8px !important;
+  font-size:15px;
+  font-weight:600;
+}
+
+.mcart-info{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:20px;
+}
+
+.mcart-info p{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#4b5563;
+  font-size:14px;
+}
+
+.mcart-footer{
+  margin-top:60px;
+  padding-top:40px;
+  border-top:1px solid #d9e0ea;
+
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:40px;
+}
+
+.mcart-footer h4,
+.mcart-footer h5{
+  margin-bottom:14px;
+  color:#111827;
+}
+
+.mcart-footer p,
+.mcart-footer span{
+  display:block;
+  color:#6b7280;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+@media(max-width:768px){
+
+  .mcart-card{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+
+  .mcart-product-right{
+    width:100%;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+}
+
+/* TOTAL */
+
+.mcart-total h1{
+  font-size:28px !important;
+  color:#2563eb !important;
+  font-weight:700 !important;
+}
+
+/* PRECIOS PRODUCTOS */
+
+.mcart-price{
+  color:#2563eb !important;
+  font-size:18px !important;
+  font-weight:700 !important;
+}
+
+/* SUMADOR */
+
+.mcart-qty .sumador-container{
+  height:30px !important;
+}
+
+.mcart-qty span,
+.mcart-qty input{
+  color:#4b5563 !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+}
+
+/* BOTON FINALIZAR */
+
+.mcart-checkout-btn{
+  width:100% !important;
+  height:48px !important;
+  border-radius:8px !important;
+  margin-top:10px !important;
+}

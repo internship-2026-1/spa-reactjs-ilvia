@@ -1,0 +1,318 @@
+.cart-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* TITLE */
+
+.cart-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2.5rem;
+}
+
+/* LAYOUT */
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* LEFT */
+
+.cart-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* PRODUCT */
+
+.cart-product {
+  background: white;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 12px;
+
+  padding: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1.2rem;
+}
+
+.cart-product-image {
+  width: 110px;
+  height: 110px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+
+  flex-shrink: 0;
+}
+
+.cart-product-info {
+  flex: 1;
+}
+
+.cart-product-info h3 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+}
+
+.cart-product-info p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+
+/* TAGS */
+
+.cart-tags {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.cart-tags span {
+  background: #eef2f7;
+
+  padding: 0.35rem 0.7rem;
+
+  border-radius: 6px;
+
+  font-size: 0.8rem;
+
+  color: #475569;
+}
+
+/* RIGHT */
+
+.cart-product-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.cart-product-right h2 {
+  color: #2563eb;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* REMOVE */
+
+.cart-remove {
+  border: none;
+  background: transparent;
+
+  color: #ef4444;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  cursor: pointer;
+
+  font-size: 0.95rem;
+}
+
+/* CONTINUE */
+
+.cart-continue {
+  border: 2px dashed #cbd5e1;
+
+  border-radius: 12px;
+
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 0.8rem;
+
+  text-align: center;
+}
+
+.cart-continue svg {
+  font-size: 1.6rem;
+  color: #94a3b8;
+}
+
+.cart-continue p {
+  color: #64748b;
+}
+
+.cart-continue a {
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* SUMMARY */
+
+.cart-summary {
+  background: white;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 16px;
+
+  padding: 1.7rem;
+
+  position: sticky;
+  top: 20px;
+}
+
+.cart-summary h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2rem;
+}
+
+.cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
+
+  color: #334155;
+}
+
+.cart-summary-row .free {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.cart-summary hr {
+  border: none;
+  border-top: 1px solid #dbe2ea;
+  margin: 1.5rem 0;
+}
+
+/* TOTAL */
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 2rem;
+}
+
+.cart-total span {
+  font-size: 1.2rem;
+  color: #334155;
+}
+
+.cart-total h1 {
+  color: #2563eb;
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+/* BUTTONS */
+
+.cart-primary-btn,
+.cart-secondary-btn {
+  width: 100%;
+  height: 54px;
+
+  border-radius: 10px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  margin-bottom: 1rem;
+}
+
+.cart-primary-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
+
+.cart-secondary-btn {
+  background: white;
+  border: 1px solid #cbd5e1;
+}
+
+/* DELIVERY */
+
+.cart-delivery {
+  margin-top: 1.5rem;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 10px;
+
+  padding: 1rem;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.cart-delivery svg {
+  color: #2563eb;
+  font-size: 1.2rem;
+}
+
+.cart-delivery h4 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.cart-delivery p {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* TRUST */
+
+.cart-trust {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+
+  margin-top: 1.5rem;
+}
+
+.cart-trust svg {
+  color: #64748b;
+  font-size: 1.2rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-product {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-product-right {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+}
